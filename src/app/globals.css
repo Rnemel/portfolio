@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(circle at top, #140a24 0, #0b0612 55%, #030014 100%);
+  background-size: 140% 140%;
+  animation: subtle-aurora 28s ease-in-out infinite;
+  color: #f5f3ff;
+}
+
+.glass-surface {
+  background: linear-gradient(
+      135deg,
+      rgba(88, 28, 135, 0.32),
+      rgba(6, 3, 18, 0.96)
+    );
+  border: 1px solid rgba(167, 139, 250, 0.32);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(20px) saturate(1.2);
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #f5f3ff 0%, #c4b5fd 40%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.border-gradient {
+  position: relative;
+}
+
+.border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(167, 139, 250, 0.7),
+    rgba(76, 29, 149, 0.2),
+    rgba(15, 23, 42, 0.9)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+.border-gradient-inner {
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes subtle-aurora {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 85% 30%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
