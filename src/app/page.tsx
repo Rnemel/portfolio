@@ -83,82 +83,78 @@ export default function HomePage() {
               </dl>
               <div className="mt-4 flex w-full flex-wrap items-center justify-center gap-4">
                 <a href={profile.links.cv} target="_blank" rel="noreferrer">
-                  <Button variant="ghost">Download CV</Button>
+                  <Button>Download CV</Button>
                 </a>
+              </div>
+              <div className="mt-6 w-full space-y-3 text-left">
+                <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
+                  Professional certificates
+                </p>
+                <CertificatesAccordion certificates={profile.certificates} />
               </div>
             </Card>
           </FadeIn>
           <FadeIn>
-            <div className="flex flex-col gap-6 rounded-3xl border-gradient bg-surface/60 px-4 py-4 md:px-6 md:py-5">
-              <div className="border-gradient-inner flex-1">
-                <h2 className="inline-flex items-center gap-2 text-base font-semibold text-text md:text-lg">
-                  <span className="h-px w-6 rounded-full bg-accent" />
-                  <span>Professional certificates</span>
-                </h2>
+            <div className="flex flex-col gap-6">
+              <div className="rounded-3xl border-gradient bg-surface/60 px-4 py-4 md:px-6 md:py-5">
+                <div className="border-gradient-inner space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
+                      Signature strengths
+                    </p>
+                    <h2 className="text-xl font-semibold text-text">
+                      How I drive impact in technical projects
+                    </h2>
+                    <p className="text-sm text-muted">
+                      I am a hands-on builder who connects structured thinking to working software and
+                      real-world outcomes.
+                    </p>
+                  </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <Card>
+                      <div className="border-gradient-inner space-y-2">
+                        <p className="text-xs font-medium text-text/90">Structured problem solving</p>
+                        <p className="text-xs text-muted">
+                          I define objectives, constraints, and trade-offs clearly before committing
+                          engineering time.
+                        </p>
+                      </div>
+                    </Card>
+                    <Card>
+                      <div className="border-gradient-inner space-y-2">
+                        <p className="text-xs font-medium text-text/90">
+                          End-to-end product development
+                        </p>
+                        <p className="text-xs text-muted">
+                          I design and implement systems across frontend, backend, and data layers to
+                          ensure consistency between requirements, API, and interface.
+                        </p>
+                      </div>
+                    </Card>
+                    <Card>
+                      <div className="border-gradient-inner space-y-2">
+                        <p className="text-xs font-medium text-text/90">Systems &amp; automation</p>
+                        <p className="text-xs text-muted">
+                          Structured web data extraction and browser automation using DOM traversal,
+                          selectors, dynamic forms, conditional workflows, and clean data structuring.
+                        </p>
+                      </div>
+                    </Card>
+                    <Card>
+                      <div className="border-gradient-inner space-y-2">
+                        <p className="text-xs font-medium text-text/90">Stakeholder communication</p>
+                        <p className="text-xs text-muted">
+                          I align technical and non-technical stakeholders through structured updates
+                          focused on risks, options, and impact.
+                        </p>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
               </div>
-              <CertificatesAccordion certificates={profile.certificates} />
             </div>
           </FadeIn>
         </div>
-      </Section>
-
-      <Section>
-        <FadeIn>
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-sm space-y-2">
-              <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
-                Signature strengths
-              </p>
-              <h2 className="text-xl font-semibold text-text">
-                How I drive impact in technical projects
-              </h2>
-              <p className="text-sm text-muted">
-                I am a hands-on builder who connects structured thinking to working software and
-                real-world outcomes.
-              </p>
-            </div>
-            <div className="grid flex-1 gap-4 md:grid-cols-2">
-              <Card>
-                <div className="border-gradient-inner space-y-2">
-                  <p className="text-xs font-medium text-text/90">Structured problem solving</p>
-                  <p className="text-xs text-muted">
-                    I define objectives, constraints, and trade-offs clearly before committing
-                    engineering time.
-                  </p>
-                </div>
-              </Card>
-              <Card>
-                <div className="border-gradient-inner space-y-2">
-                  <p className="text-xs font-medium text-text/90">
-                    End-to-end product development
-                  </p>
-                  <p className="text-xs text-muted">
-                    I design and implement systems across frontend, backend, and data layers to
-                    ensure consistency between requirements, API, and interface.
-                  </p>
-                </div>
-              </Card>
-              <Card>
-                <div className="border-gradient-inner space-y-2">
-                  <p className="text-xs font-medium text-text/90">Systems &amp; automation</p>
-                  <p className="text-xs text-muted">
-                    Structured web data extraction and browser automation using DOM traversal,
-                    selectors, dynamic forms, conditional workflows, and clean data structuring.
-                  </p>
-                </div>
-              </Card>
-              <Card>
-                <div className="border-gradient-inner space-y-2">
-                  <p className="text-xs font-medium text-text/90">Stakeholder communication</p>
-                  <p className="text-xs text-muted">
-                    I align technical and non-technical stakeholders through structured updates
-                    focused on risks, options, and impact.
-                  </p>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </FadeIn>
       </Section>
     </>
   );

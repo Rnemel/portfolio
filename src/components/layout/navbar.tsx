@@ -37,7 +37,7 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-accent/15 bg-background/80 backdrop-blur-glass">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6 md:py-4">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-6 md:py-4">
           <Link href="/" className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-2xl bg-gradient-to-tr from-primary to-accent shadow-glow" />
             <div className="flex flex-col">
@@ -48,38 +48,31 @@ export function Navbar() {
             </div>
           </Link>
 
-        <nav className="hidden items-center gap-2 rounded-full border border-surface/60 bg-surface/60 px-2 py-1 text-xs text-muted shadow-lg md:flex">
-          {navItems.map((item) => {
-            const isActive =
-              item.href === '/'
-                ? pathname === '/'
-                : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  'relative rounded-full px-3 py-1 transition-colors',
-                  'hover:text-text',
-                  isActive && 'bg-primary/40 text-text shadow-glow'
-                )}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/projects"
-              className="hidden rounded-full border border-primary/50 bg-primary/80 px-4 py-1.5 text-xs font-medium text-text shadow-glow hover:bg-primary/90 md:inline-flex"
-            >
-              View Projects
-            </Link>
+          <div className="flex items-center justify-between gap-3 md:justify-end">
+            <nav className="flex flex-1 items-center justify-center gap-2 rounded-full border border-surface/60 bg-surface/60 px-2 py-1 text-xs text-muted shadow-lg md:flex-none md:justify-center">
+              {navItems.map((item) => {
+                const isActive =
+                  item.href === '/'
+                    ? pathname === '/'
+                    : pathname.startsWith(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      'relative rounded-full px-3 py-1 transition-colors',
+                      'hover:text-text',
+                      isActive && 'bg-primary/40 text-text shadow-glow'
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
             <Link
               href="/contact"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-surface/70 bg-surface/80 text-xs text-muted hover:border-accent/70 hover:text-accent"
+              className="hidden h-9 w-9 items-center justify-center rounded-full border border-surface/70 bg-surface/80 text-xs text-muted hover:border-accent/70 hover:text-accent md:inline-flex"
             >
               ✺
             </Link>

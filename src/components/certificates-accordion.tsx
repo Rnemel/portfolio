@@ -16,7 +16,7 @@ type CertificatesAccordionProps = {
 };
 
 export function CertificatesAccordion({ certificates }: CertificatesAccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <dl className="flex-1 space-y-2 text-xs text-muted">
@@ -90,4 +90,3 @@ export function CertificatesAccordion({ certificates }: CertificatesAccordionPro
     </dl>
   );
 }
-
