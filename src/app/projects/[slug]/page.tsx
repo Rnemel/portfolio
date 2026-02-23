@@ -240,10 +240,6 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                       </a>
                     )}
                   </div>
-                  <p className="text-[11px] text-muted/70">
-                    Additional diagrams and documentation available on request where not restricted
-                    by NDA.
-                  </p>
                 </div>
               </Card>
             </div>

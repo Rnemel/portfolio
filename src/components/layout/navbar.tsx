@@ -38,17 +38,14 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-40 border-b border-accent/15 bg-background/80 backdrop-blur-glass">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-6 md:py-4">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-2xl bg-gradient-to-tr from-primary to-accent shadow-glow" />
-            <div className="flex flex-col">
-              <span className="text-xs uppercase tracking-[0.2em] text-muted/80">
-                Full-Stack &amp; AI
-              </span>
-              <span className="text-sm font-semibold text-text">{profile.name}</span>
-            </div>
+          <Link href="/" className="flex flex-col">
+            <span className="text-xs uppercase tracking-[0.2em] text-muted/80">
+              Full-Stack &amp; AI
+            </span>
+            <span className="text-sm font-semibold text-text">{profile.name}</span>
           </Link>
 
-          <div className="flex items-center justify-between gap-3 md:justify-end">
+          <div className="flex items-center justify-center">
             <nav className="flex flex-1 items-center justify-center gap-2 rounded-full border border-surface/60 bg-surface/60 px-2 py-1 text-xs text-muted shadow-lg md:flex-none md:justify-center">
               {navItems.map((item) => {
                 const isActive =
@@ -70,12 +67,6 @@ export function Navbar() {
                 );
               })}
             </nav>
-            <Link
-              href="/contact"
-              className="hidden h-9 w-9 items-center justify-center rounded-full border border-surface/70 bg-surface/80 text-xs text-muted hover:border-accent/70 hover:text-accent md:inline-flex"
-            >
-              ✺
-            </Link>
           </div>
         </div>
       </header>
