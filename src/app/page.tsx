@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { FadeIn, Section } from '@/components/section';
 import { profile } from '@/data/profile';
-import { projects } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'Raneem Azib Almalki | Computer Science Senior',
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const featuredProjects = projects.slice(0, 2);
   const emailLabel = profile.links.email.replace('mailto:', '');
 
   return (
@@ -140,40 +138,12 @@ export default function HomePage() {
         </FadeIn>
       </Section>
 
-      <Section id="projects" className="pt-0">
+      <Section className="pt-0">
         <FadeIn>
-          <div className="flex flex-col gap-6">
-            <div className="flex items-end justify-between gap-4">
-              <div className="space-y-2">
-                <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
-                  Selected projects
-                </p>
-                <h2 className="text-xl font-semibold text-text">What I build</h2>
-              </div>
-              <Link href="/projects" className="text-xs font-medium text-muted hover:text-accent">
-                View all
-              </Link>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              {featuredProjects.map((project) => (
-                <Card key={project.slug} className="bg-surface/70">
-                  <div className="border-gradient-inner space-y-3">
-                    <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
-                      {project.sector}
-                    </p>
-                    <h3 className="text-lg font-semibold text-text">{project.title}</h3>
-                    <p className="text-sm text-muted">{project.tagline}</p>
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="text-xs font-medium text-muted hover:text-accent"
-                    >
-                      Read case study →
-                    </Link>
-                  </div>
-                </Card>
-              ))}
-            </div>
+          <div className="flex justify-center">
+            <Link href="/projects">
+              <Button>View Projects</Button>
+            </Link>
           </div>
         </FadeIn>
       </Section>
