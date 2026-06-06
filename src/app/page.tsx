@@ -55,9 +55,6 @@ export default function HomePage() {
                   <a href={profile.links.email}>
                     <Button variant="ghost">Email</Button>
                   </a>
-                  <a href={profile.links.github} target="_blank" rel="noreferrer">
-                    <Button variant="ghost">GitHub</Button>
-                  </a>
                 </div>
               </div>
             </Card>

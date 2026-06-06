@@ -103,12 +103,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
           {items.map((item) => {
             if (item.kind === 'project') {
               const project = item.data;
-              const overheadMetric = project.metrics.find((metric) =>
-                metric.label.toLowerCase().includes('overhead')
-              );
-              const dataQualityMetric = project.metrics.find((metric) =>
-                metric.label.toLowerCase().includes('data quality')
-              );
 
               return (
                 <details key={project.slug} className="glass-surface border-gradient rounded-3xl">
@@ -161,26 +155,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                           ))}
                         </ol>
                       </div>
-                      {(overheadMetric || dataQualityMetric) && (
-                        <div>
-                          {overheadMetric && (
-                            <div>
-                              <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
-                                Overhead
-                              </p>
-                              <p className="mt-1 text-text/90">{overheadMetric.value}</p>
-                            </div>
-                          )}
-                          {dataQualityMetric && (
-                            <div className={overheadMetric ? 'mt-3' : undefined}>
-                              <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
-                                Data quality
-                              </p>
-                              <p className="mt-1 text-text/90">{dataQualityMetric.value}</p>
-                            </div>
-                          )}
-                        </div>
-                      )}
                     </div>
 
                     <div className="flex flex-wrap items-center gap-4 pt-2 text-[11px]">
