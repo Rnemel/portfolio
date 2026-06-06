@@ -13,8 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const emailLabel = profile.links.email.replace('mailto:', '');
-
   return (
     <>
       <Section className="border-t-0 pt-12 md:pt-16">
@@ -40,24 +38,6 @@ export default function HomePage() {
                       {profile.name}
                     </h1>
                     <p className="mt-2 text-sm text-muted">{profile.title}</p>
-                    <div className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-muted/90 sm:justify-start">
-                      <a href={profile.contact.phoneHref} className="hover:text-accent">
-                        {profile.contact.phone}
-                      </a>
-                      <span className="h-1 w-1 rounded-full bg-muted/50" />
-                      <a href={profile.links.email} className="hover:text-accent">
-                        {emailLabel}
-                      </a>
-                      <span className="h-1 w-1 rounded-full bg-muted/50" />
-                      <a
-                        href={profile.links.linkedin}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="hover:text-accent"
-                      >
-                        {profile.contact.linkedinDisplay}
-                      </a>
-                    </div>
                   </div>
                 </div>
 
@@ -72,6 +52,9 @@ export default function HomePage() {
                   </a>
                   <a href={profile.links.email}>
                     <Button variant="ghost">Email</Button>
+                  </a>
+                  <a href={profile.links.github} target="_blank" rel="noreferrer">
+                    <Button variant="ghost">GitHub</Button>
                   </a>
                 </div>
               </div>
