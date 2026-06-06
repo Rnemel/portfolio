@@ -26,9 +26,9 @@ export default function HomePage() {
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
           <FadeIn delay={0.1}>
             <Card className="relative flex flex-col items-center justify-between gap-6 overflow-hidden border-gradient-inner bg-surface/80 px-6 pb-6 pt-8">
-              <div className="pointer-events-none absolute inset-x-[-40%] top-[-45%] h-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(147,112,255,0.45),transparent_65%)] blur-3xl" />
+              <div className="pointer-events-none absolute inset-x-[-40%] top-[-45%] h-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.45),transparent_65%)] blur-3xl" />
               <div className="relative flex flex-col items-center gap-4">
-                <div className="relative h-32 w-32 overflow-hidden rounded-3xl border border-primary/70 bg-[radial-gradient(circle_at_top,_rgba(147,112,255,0.3),_rgba(15,23,42,0.95))] shadow-[0_18px_45px_rgba(0,0,0,0.85)]">
+                <div className="relative h-32 w-32 overflow-hidden rounded-3xl border border-primary/70 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.28),_rgba(2,6,23,0.95))] shadow-[0_18px_45px_rgba(0,0,0,0.85)]">
                   <Image
                     src="/profile-placeholder.svg"
                     alt="Portrait of Raneem Azib Almalki"

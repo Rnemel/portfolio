@@ -9,15 +9,15 @@ const config: Config = {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        background: '#0B0612',
-        surface: '#140A24',
-        primary: '#4C1D95',
-        accent: '#A78BFA',
-        text: '#F5F3FF',
-        muted: '#C4B5FD',
+        background: '#050B1A',
+        surface: '#0B1633',
+        primary: '#1D4ED8',
+        accent: '#60A5FA',
+        text: '#EFF6FF',
+        muted: '#93C5FD',
       },
       boxShadow: {
-        glow: '0 0 40px rgba(167, 139, 250, 0.35)',
+        glow: '0 0 40px rgba(96, 165, 250, 0.35)',
       },
       backdropBlur: {
         glass: '18px',
@@ -28,4 +28,3 @@ const config: Config = {
 };
 
 export default config;
-
