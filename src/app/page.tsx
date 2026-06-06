@@ -22,7 +22,7 @@ export default function HomePage() {
       <Section className="border-t-0 pt-12 md:pt-16">
         <FadeIn>
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start">
-            <Card className="relative overflow-hidden border-gradient-inner bg-surface/80">
+            <Card className="relative overflow-hidden border-gradient-inner bg-surface/80 p-5 sm:p-6">
               <div className="pointer-events-none absolute inset-x-[-40%] top-[-45%] h-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.35),transparent_65%)] blur-3xl" />
               <div className="relative flex flex-col gap-6">
                 <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-start sm:text-left">
@@ -76,59 +76,42 @@ export default function HomePage() {
                     <Button variant="ghost">Email</Button>
                   </a>
                 </div>
-
-                <div className="grid gap-3 sm:grid-cols-3">
-                  {profile.headlineBullets.slice(0, 3).map((bullet) => (
-                    <div key={bullet} className="rounded-2xl bg-background/55 px-4 py-3">
-                      <p className="text-xs text-text/90">{bullet}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </Card>
 
             <div className="space-y-4">
-              <Card>
-                <div className="border-gradient-inner space-y-3">
-                  <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">Education</p>
-                  <div className="space-y-1">
-                    <p className="text-sm font-semibold text-text">{profile.education.degree}</p>
-                    <p className="text-xs text-muted">{profile.education.institution}</p>
-                    <p className="text-xs text-muted/80">{profile.education.expected}</p>
+              <Card className="p-5 sm:p-6">
+                <div className="border-gradient-inner space-y-4">
+                  <div className="space-y-2">
+                    <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
+                      Education
+                    </p>
+                    <div className="space-y-1">
+                      <p className="text-sm font-semibold text-text">{profile.education.degree}</p>
+                      <p className="text-xs text-muted">{profile.education.institution}</p>
+                      <p className="text-xs text-muted/80">{profile.education.expected}</p>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {profile.education.coursework.slice(0, 6).map((course) => (
-                      <span
-                        key={course}
-                        className="rounded-full bg-background/70 px-3 py-1 text-[11px] text-muted/90"
-                      >
-                        {course}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Card>
 
-              <Card>
-                <div className="border-gradient-inner space-y-3">
-                  <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
-                    Certifications
-                  </p>
-                  <div className="space-y-2 text-xs text-muted">
-                    {profile.certificates.map((certificate) => (
-                      <div key={certificate.name} className="space-y-1">
-                        <p className="font-medium text-text/90">
+                  <div className="space-y-2">
+                    <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
+                      Certifications
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {profile.certificates.map((certificate) => (
+                        <span
+                          key={certificate.name}
+                          className="rounded-full bg-background/70 px-3 py-1 text-[11px] text-muted/90"
+                        >
                           {certificate.name}
-                          <span className="text-muted/70"> · {certificate.year}</span>
-                        </p>
-                        <p className="text-muted/70">{certificate.description}</p>
-                      </div>
-                    ))}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Card>
 
-              <Card>
+              <Card className="p-5 sm:p-6">
                 <div className="border-gradient-inner space-y-3">
                   <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">Experience</p>
                   <div className="space-y-4 text-xs text-muted">
@@ -140,7 +123,7 @@ export default function HomePage() {
                           <p className="text-muted/60">{item.period}</p>
                         </div>
                         <ul className="space-y-1.5 text-muted/80">
-                          {item.bullets.slice(0, 2).map((bullet) => (
+                          {item.bullets.slice(0, 1).map((bullet) => (
                             <li key={bullet} className="flex gap-2">
                               <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-accent" />
                               <span>{bullet}</span>
