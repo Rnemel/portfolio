@@ -109,9 +109,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                   <summary className="cursor-pointer select-none px-5 py-4 md:px-6">
                     <div className="border-gradient-inner flex items-start justify-between gap-4">
                       <div className="min-w-0 space-y-1">
-                        <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
-                          {project.sector}
-                        </p>
                         <h2 className="text-sm font-semibold text-text">{project.title}</h2>
                         <p className="text-xs text-muted">{project.tagline}</p>
                       </div>
@@ -190,9 +187,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                 <summary className="cursor-pointer select-none px-5 py-4 md:px-6">
                   <div className="border-gradient-inner flex items-start justify-between gap-4">
                     <div className="min-w-0 space-y-1">
-                      <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
-                        {hackathon.organizer}
-                      </p>
                       <h2 className="text-sm font-semibold text-text">{hackathon.name}</h2>
                       <p className="text-xs text-muted">{hackathon.impact}</p>
                     </div>

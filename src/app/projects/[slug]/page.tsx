@@ -47,9 +47,6 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
           <TopNav />
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="space-y-3">
-              <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
-                Case study · {project.sector}
-              </p>
               <h1 className="text-2xl font-semibold text-text md:text-3xl">
                 {project.title}
               </h1>
