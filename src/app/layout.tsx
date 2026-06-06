@@ -28,13 +28,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Your Name',
-    jobTitle: 'Full-Stack Developer | AI Engineer',
+    name: 'Raneem Azib Almalki',
+    jobTitle: 'Full-stack developer',
     url: 'https://portfolio-one-phi-z2ia5rz2yf.vercel.app',
     sameAs: [
-      'https://www.linkedin.com/in/your-handle',
-      'https://github.com/your-handle',
-      'https://x.com/your-handle',
+      'https://www.linkedin.com/in/raneem-almalki-0b7ab5244/',
+      'https://github.com/Rnemel',
     ],
     worksFor: {
       '@type': 'Organization',

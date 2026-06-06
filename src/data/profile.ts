@@ -16,7 +16,7 @@ export const profile = {
   ],
   links: {
     github: 'https://github.com/Rnemel',
-    linkedin: 'https://www.linkedin.com/in/raneem-azib-almalki-0b7ab5244/',
+    linkedin: 'https://www.linkedin.com/in/raneem-almalki-0b7ab5244/',
     email: 'mailto:rnemelmalki@gmail.com',
     cv: '/Raneem Azib Almalki.pdf',
   },
