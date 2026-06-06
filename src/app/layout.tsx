@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   title: 'Full-Stack Developer | AI Engineer | SAP Technology Consulting',
   description:
     'Premium portfolio of a full-stack developer and AI engineer delivering production-grade ML systems and SAP technology consulting.',
-  metadataBase: new URL('https://www.example.com'),
+  metadataBase: new URL('https://portfolio-one-phi-z2ia5rz2yf.vercel.app'),
   openGraph: {
     title:
       'Full-Stack Developer | AI Engineer (ML Projects) | SAP Technology Consulting (Certified)',
     description:
       'Portfolio of a full-stack developer and AI engineer with a track record of shipping reliable ML features and SAP technology consulting engagements.',
-    url: 'https://www.example.com',
+    url: 'https://portfolio-one-phi-z2ia5rz2yf.vercel.app',
     siteName: 'Full-Stack & AI Engineering Portfolio',
     type: 'website',
   },
@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     '@type': 'Person',
     name: 'Your Name',
     jobTitle: 'Full-Stack Developer | AI Engineer',
-    url: 'https://www.example.com',
+    url: 'https://portfolio-one-phi-z2ia5rz2yf.vercel.app',
     sameAs: [
       'https://www.linkedin.com/in/your-handle',
       'https://github.com/your-handle',

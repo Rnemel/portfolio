@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: 'https://www.example.com',
+  siteUrl: 'https://portfolio-one-phi-z2ia5rz2yf.vercel.app',
   generateRobotsTxt: true,
   sitemapSize: 7000,
   changefreq: 'weekly',
@@ -8,4 +8,3 @@ const config = {
 };
 
 export default config;
-
