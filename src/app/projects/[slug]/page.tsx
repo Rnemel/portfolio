@@ -39,6 +39,9 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
   }
 
   const stack = project.stack.filter((tech) => !tech.toLowerCase().includes('placeholder'));
+  const hideDetailsSections =
+    project.slug === 'html-data-parsing-structured-export' ||
+    project.slug === 'responsive-email-systems';
 
   return (
     <>
@@ -82,32 +85,36 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 </h2>
                 <p className="mt-2 text-text/90">{project.overview}</p>
               </div>
-              <div>
-                <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-muted/80">
-                  Problem
-                </h2>
-                <p className="mt-2 text-text/90">{project.problem}</p>
-              </div>
-              <div>
-                <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-muted/80">
-                  Constraints
-                </h2>
-                <p className="mt-2">{project.constraints}</p>
-              </div>
-              <div>
-                <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-muted/80">
-                  Approach
-                </h2>
-                <p className="mt-2 text-text/90">{project.approach}</p>
-                <ol className="mt-2 space-y-2 text-xs text-muted">
-                  {project.approachSteps.map((step) => (
-                    <li key={step} className="flex gap-2">
-                      <span className="mt-1 h-1 w-1 rounded-full bg-accent" />
-                      <span>{step}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+              {!hideDetailsSections && (
+                <>
+                  <div>
+                    <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-muted/80">
+                      Problem
+                    </h2>
+                    <p className="mt-2 text-text/90">{project.problem}</p>
+                  </div>
+                  <div>
+                    <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-muted/80">
+                      Constraints
+                    </h2>
+                    <p className="mt-2">{project.constraints}</p>
+                  </div>
+                  <div>
+                    <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-muted/80">
+                      Approach
+                    </h2>
+                    <p className="mt-2 text-text/90">{project.approach}</p>
+                    <ol className="mt-2 space-y-2 text-xs text-muted">
+                      {project.approachSteps.map((step) => (
+                        <li key={step} className="flex gap-2">
+                          <span className="mt-1 h-1 w-1 rounded-full bg-accent" />
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </>
+              )}
             </div>
           </FadeIn>
 
