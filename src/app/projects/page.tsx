@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { FadeIn, Section } from '@/components/section';
+import { TopNav } from '@/components/top-nav';
 import { projects } from '@/data/projects';
 import { ProjectsGrid } from './projects-grid';
 
@@ -15,30 +14,9 @@ export default function ProjectsPage() {
   return (
     <>
       <Section>
-        <div className="flex justify-center gap-2">
-          <Link href="/">
-            <Button variant="ghost">Home</Button>
-          </Link>
-          <Link href="/projects">
-            <Button variant="ghost">Projects</Button>
-          </Link>
-        </div>
+        <TopNav />
         <FadeIn>
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="space-y-3">
-              <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
-                Projects &amp; case studies
-              </p>
-              <h1 className="text-2xl font-semibold text-text md:text-3xl">
-                From problem framing to shipped, measurable outcomes
-              </h1>
-              <p className="max-w-2xl text-sm text-muted">
-                Each project pairs technical implementation with clear success metrics. I work
-                end-to-end: from discovery and scoping through architecture, implementation,
-                rollout, and iteration.
-              </p>
-            </div>
-          </div>
+          <h1 className="text-2xl font-semibold text-text md:text-3xl">Projects</h1>
         </FadeIn>
       </Section>
 

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { FadeIn, Section } from '@/components/section';
+import { TopNav } from '@/components/top-nav';
 import { profile } from '@/data/profile';
 
 export const metadata: Metadata = {
@@ -16,14 +17,7 @@ export default function HomePage() {
   return (
     <>
       <Section className="border-t-0 pt-12 md:pt-16">
-        <div className="flex justify-center gap-2">
-          <Link href="/">
-            <Button variant="ghost">Home</Button>
-          </Link>
-          <Link href="/projects">
-            <Button variant="ghost">Projects</Button>
-          </Link>
-        </div>
+        <TopNav />
         <FadeIn>
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start">
             <Card className="relative overflow-hidden border-gradient-inner bg-surface/80 p-5 sm:p-6">

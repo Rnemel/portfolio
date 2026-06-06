@@ -119,7 +119,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                           {project.sector}
                         </p>
                         <h2 className="text-sm font-semibold text-text">{project.title}</h2>
-                        <p className="text-xs text-muted line-clamp-2">{project.tagline}</p>
+                        <p className="text-xs text-muted">{project.tagline}</p>
                       </div>
                       <span className="mt-1 shrink-0 text-[11px] font-medium text-muted hover:text-accent">
                         Details →
@@ -128,28 +128,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                   </summary>
 
                   <div className="border-gradient-inner space-y-4 px-5 pb-5 text-xs text-muted md:px-6">
-                    <div className="flex flex-wrap gap-2">
-                      <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90">
-                        {project.year}
-                      </span>
-                      <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90">
-                        {project.role}
-                      </span>
-                      {project.stack.slice(0, 5).map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.stack.length > 5 && (
-                        <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/70">
-                          +{project.stack.length - 5} more
-                        </span>
-                      )}
-                    </div>
-
                     <div className="space-y-3">
                       <div>
                         <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
@@ -203,12 +181,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                           )}
                         </div>
                       )}
-                      <div>
-                        <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
-                          Next improvement
-                        </p>
-                        <p className="mt-1">{project.improvements}</p>
-                      </div>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-4 pt-2 text-[11px]">
@@ -248,7 +220,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                         {hackathon.organizer}
                       </p>
                       <h2 className="text-sm font-semibold text-text">{hackathon.name}</h2>
-                      <p className="text-xs text-muted line-clamp-2">{hackathon.impact}</p>
+                      <p className="text-xs text-muted">{hackathon.impact}</p>
                     </div>
                     <span className="mt-1 shrink-0 text-[11px] font-medium text-muted hover:text-accent">
                       Details →
@@ -257,26 +229,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                 </summary>
 
                 <div className="border-gradient-inner space-y-4 px-5 pb-5 text-xs text-muted md:px-6">
-                  <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90">
-                      Hackathon
-                    </span>
-                    <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90">
-                      {hackathon.role}
-                    </span>
-                    <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90">
-                      {hackathon.result}
-                    </span>
-                    {hackathon.stack.slice(0, 5).map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
                   <div>
                     <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">Overview</p>
                     <p className="mt-1 text-text/90">{hackathon.impact}</p>

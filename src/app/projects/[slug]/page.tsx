@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { FadeIn, Section } from '@/components/section';
+import { TopNav } from '@/components/top-nav';
 import { getProjectBySlug, projects } from '@/data/projects';
 
 type Params = {
@@ -39,18 +38,13 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const stack = project.stack.filter((tech) => !tech.toLowerCase().includes('placeholder'));
+
   return (
     <>
       <Section>
         <FadeIn>
-          <div className="flex justify-center gap-2">
-            <Link href="/">
-              <Button variant="ghost">Home</Button>
-            </Link>
-            <Link href="/projects">
-              <Button variant="ghost">Projects</Button>
-            </Link>
-          </div>
+          <TopNav />
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="space-y-3">
               <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
@@ -107,6 +101,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-muted/80">
                   Approach
                 </h2>
+                <p className="mt-2 text-text/90">{project.approach}</p>
                 <ol className="mt-2 space-y-2 text-xs text-muted">
                   {project.approachSteps.map((step) => (
                     <li key={step} className="flex gap-2">
@@ -115,12 +110,6 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                     </li>
                   ))}
                 </ol>
-              </div>
-              <div>
-                <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-muted/80">
-                  What I would improve next
-                </h2>
-                <p className="mt-2">{project.improvements}</p>
               </div>
             </div>
           </FadeIn>
@@ -184,7 +173,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                       </div>
                     </div>
                     <div className="flex flex-wrap justify-center gap-1.5 text-[10px] text-muted/80">
-                      {project.stack.slice(0, 4).map((tech) => (
+                      {stack.slice(0, 4).map((tech) => (
                         <span
                           key={tech}
                           className="rounded-full bg-background/80 px-2.5 py-1"
@@ -192,9 +181,9 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                           {tech}
                         </span>
                       ))}
-                      {project.stack.length > 4 && (
+                      {stack.length > 4 && (
                         <span className="rounded-full bg-background/80 px-2.5 py-1">
-                          +{project.stack.length - 4} more
+                          +{stack.length - 4} more
                         </span>
                       )}
                     </div>
@@ -211,7 +200,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                     Tech stack
                   </h2>
                   <div className="flex flex-wrap gap-1.5">
-                    {project.stack.map((tech) => (
+                    {stack.map((tech) => (
                       <span
                         key={tech}
                         className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90"
