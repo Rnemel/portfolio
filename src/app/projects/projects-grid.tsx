@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { FadeIn } from '@/components/section';
 import type { Project, ProjectCategory } from '@/data/projects';
 import { hackathons, type Hackathon } from '@/data/hackathons';
@@ -104,6 +103,13 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
           {items.map((item) => {
             if (item.kind === 'project') {
               const project = item.data;
+              const overheadMetric = project.metrics.find((metric) =>
+                metric.label.toLowerCase().includes('overhead')
+              );
+              const dataQualityMetric = project.metrics.find((metric) =>
+                metric.label.toLowerCase().includes('data quality')
+              );
+
               return (
                 <details key={project.slug} className="glass-surface border-gradient rounded-3xl">
                   <summary className="cursor-pointer select-none px-5 py-4 md:px-6">
@@ -177,25 +183,26 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                           ))}
                         </ol>
                       </div>
-                      <div>
-                        <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
-                          Impact
-                        </p>
-                        <p className="mt-1 text-text/90">{project.impact}</p>
-                      </div>
-                      <div>
-                        <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
-                          Metrics
-                        </p>
-                        <dl className="mt-2 grid gap-2">
-                          {project.metrics.map((metric) => (
-                            <div key={metric.label}>
-                              <dt className="text-muted/70">{metric.label}</dt>
-                              <dd className="text-text/90">{metric.value}</dd>
+                      {(overheadMetric || dataQualityMetric) && (
+                        <div>
+                          {overheadMetric && (
+                            <div>
+                              <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
+                                Overhead
+                              </p>
+                              <p className="mt-1 text-text/90">{overheadMetric.value}</p>
                             </div>
-                          ))}
-                        </dl>
-                      </div>
+                          )}
+                          {dataQualityMetric && (
+                            <div className={overheadMetric ? 'mt-3' : undefined}>
+                              <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
+                                Data quality
+                              </p>
+                              <p className="mt-1 text-text/90">{dataQualityMetric.value}</p>
+                            </div>
+                          )}
+                        </div>
+                      )}
                       <div>
                         <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
                           Next improvement
@@ -205,12 +212,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                     </div>
 
                     <div className="flex flex-wrap items-center gap-4 pt-2 text-[11px]">
-                      <Link
-                        href={`/projects/${project.slug}`}
-                        className="font-medium text-muted hover:text-accent"
-                      >
-                        Open page →
-                      </Link>
                       {project.links.repo && (
                         <a
                           href={project.links.repo}
@@ -279,18 +280,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                   <div>
                     <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">Overview</p>
                     <p className="mt-1 text-text/90">{hackathon.impact}</p>
-                  </div>
-
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">Metrics</p>
-                    <dl className="mt-2 grid gap-2">
-                      {hackathon.metrics.map((metric) => (
-                        <div key={metric.label}>
-                          <dt className="text-muted/70">{metric.label}</dt>
-                          <dd className="text-text/90">{metric.value}</dd>
-                        </div>
-                      ))}
-                    </dl>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-4 pt-2 text-[11px]">

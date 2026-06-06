@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { FadeIn, Section } from '@/components/section';
 import { getProjectBySlug, projects } from '@/data/projects';
 
@@ -41,6 +43,14 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
     <>
       <Section>
         <FadeIn>
+          <div className="flex justify-center gap-2">
+            <Link href="/">
+              <Button variant="ghost">Home</Button>
+            </Link>
+            <Link href="/projects">
+              <Button variant="ghost">Projects</Button>
+            </Link>
+          </div>
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="space-y-3">
               <p className="text-[11px] uppercase tracking-[0.26em] text-muted/80">
