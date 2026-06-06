@@ -15,9 +15,6 @@ export default function ProjectsPage() {
     <>
       <Section>
         <TopNav />
-        <FadeIn>
-          <h1 className="text-2xl font-semibold text-text md:text-3xl">Projects</h1>
-        </FadeIn>
       </Section>
 
       <Section className="pt-0">
