@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Card } from '@/components/ui/card';
 import { FadeIn } from '@/components/section';
 import type { Project, ProjectCategory } from '@/data/projects';
 import { hackathons } from '@/data/hackathons';
@@ -74,58 +73,127 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
       </FadeIn>
 
       <FadeIn>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="space-y-4">
           {sorted.map((project) => (
-            <Card key={project.slug}>
-              <div className="border-gradient-inner flex h-full flex-col justify-between gap-4">
-                <div className="space-y-2">
-                  <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
-                    {project.sector}
-                  </p>
-                  <h2 className="text-sm font-semibold text-text">{project.title}</h2>
-                  <p className="text-xs text-muted">{project.tagline}</p>
+            <details key={project.slug} className="glass-surface border-gradient rounded-3xl">
+              <summary className="cursor-pointer select-none px-5 py-4 md:px-6">
+                <div className="border-gradient-inner flex items-start justify-between gap-4">
+                  <div className="min-w-0 space-y-1">
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
+                      {project.sector}
+                    </p>
+                    <h2 className="text-sm font-semibold text-text">{project.title}</h2>
+                    <p className="text-xs text-muted line-clamp-2">{project.tagline}</p>
+                  </div>
+                  <span className="mt-1 shrink-0 text-[11px] font-medium text-muted hover:text-accent">
+                    Details →
+                  </span>
+                </div>
+              </summary>
+
+              <div className="border-gradient-inner space-y-4 px-5 pb-5 text-xs text-muted md:px-6">
+                <div className="flex flex-wrap gap-2">
+                  <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90">
+                    {project.year}
+                  </span>
+                  <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90">
+                    {project.role}
+                  </span>
+                  {project.stack.slice(0, 5).map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.stack.length > 5 && (
+                    <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/70">
+                      +{project.stack.length - 5} more
+                    </span>
+                  )}
                 </div>
 
-                <div className="space-y-3 text-[11px] text-muted/90">
+                <div className="space-y-3">
                   <div>
-                    <p className="text-muted/70">Problem</p>
-                    <p className="text-text/90 line-clamp-3">{project.problem}</p>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">Overview</p>
+                    <p className="mt-1 text-text/90">{project.overview}</p>
                   </div>
                   <div>
-                    <p className="text-muted/70">Approach</p>
-                    <p className="line-clamp-3">{project.approach}</p>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">Problem</p>
+                    <p className="mt-1 text-text/90">{project.problem}</p>
                   </div>
                   <div>
-                    <p className="text-muted/70">Impact</p>
-                    <p className="line-clamp-3">{project.impact}</p>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
+                      Constraints
+                    </p>
+                    <p className="mt-1">{project.constraints}</p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">Approach</p>
+                    <p className="mt-1">{project.approach}</p>
+                    <ol className="mt-2 space-y-1.5">
+                      {project.approachSteps.map((step) => (
+                        <li key={step} className="flex gap-2">
+                          <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">Impact</p>
+                    <p className="mt-1 text-text/90">{project.impact}</p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">Metrics</p>
+                    <dl className="mt-2 grid gap-2">
+                      {project.metrics.map((metric) => (
+                        <div key={metric.label}>
+                          <dt className="text-muted/70">{metric.label}</dt>
+                          <dd className="text-text/90">{metric.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
+                      Next improvement
+                    </p>
+                    <p className="mt-1">{project.improvements}</p>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                  <div className="flex flex-wrap gap-1">
-                    {project.stack.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full bg-background/80 px-2.5 py-1 text-[11px] text-muted/90"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.stack.length > 3 && (
-                      <span className="rounded-full bg-background/80 px-2.5 py-1 text-[11px] text-muted/70">
-                        +{project.stack.length - 3} more
-                      </span>
-                    )}
-                  </div>
+                <div className="flex flex-wrap items-center gap-4 pt-2 text-[11px]">
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="text-[11px] font-medium text-muted hover:text-accent"
+                    className="font-medium text-muted hover:text-accent"
                   >
-                    Open case study →
+                    Open page →
                   </Link>
+                  {project.links.repo && (
+                    <a
+                      href={project.links.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-medium text-muted hover:text-accent"
+                    >
+                      Repo →
+                    </a>
+                  )}
+                  {project.links.demo && (
+                    <a
+                      href={project.links.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-medium text-muted hover:text-accent"
+                    >
+                      Demo →
+                    </a>
+                  )}
                 </div>
               </div>
-            </Card>
+            </details>
           ))}
         </div>
       </FadeIn>
@@ -144,49 +212,88 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
           </p>
         </div>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
+        <div className="mt-6 space-y-4">
           {hackathons.map((hackathon) => (
-            <Card key={hackathon.slug}>
-              <div className="border-gradient-inner flex h-full flex-col justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between gap-3">
+            <details key={hackathon.slug} className="glass-surface border-gradient rounded-3xl">
+              <summary className="cursor-pointer select-none px-5 py-4 md:px-6">
+                <div className="border-gradient-inner flex items-start justify-between gap-4">
+                  <div className="min-w-0 space-y-1">
                     <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">
                       {hackathon.organizer}
                     </p>
+                    <h3 className="text-sm font-semibold text-text">{hackathon.name}</h3>
+                    <p className="text-xs text-muted line-clamp-2">{hackathon.impact}</p>
                   </div>
-                  <h3 className="text-sm font-semibold text-text">{hackathon.name}</h3>
-                  <p className="text-xs text-muted">{hackathon.impact}</p>
+                  <span className="mt-1 shrink-0 text-[11px] font-medium text-muted hover:text-accent">
+                    Details →
+                  </span>
                 </div>
-                <dl className="grid gap-2 text-[11px] text-muted/90">
-                  <div>
-                    <dt className="text-muted/70">Role</dt>
-                    <dd className="text-text">{hackathon.role}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-muted/70">Result</dt>
-                    <dd className="text-text">{hackathon.result}</dd>
-                  </div>
-                  {hackathon.metrics.slice(0, 1).map((metric) => (
-                    <div key={metric.label}>
-                      <dt className="text-muted/70">{metric.label}</dt>
-                      <dd className="text-text">{metric.value}</dd>
-                    </div>
+              </summary>
+
+              <div className="border-gradient-inner space-y-4 px-5 pb-5 text-xs text-muted md:px-6">
+                <div className="flex flex-wrap gap-2">
+                  <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90">
+                    {hackathon.role}
+                  </span>
+                  <span className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90">
+                    {hackathon.result}
+                  </span>
+                  {hackathon.stack.slice(0, 5).map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted/90"
+                    >
+                      {tech}
+                    </span>
                   ))}
-                </dl>
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                  <div className="flex flex-wrap gap-1">
-                    {hackathon.stack.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full bg-background/80 px-2.5 py-1 text-[11px] text-muted/90"
-                      >
-                        {tech}
-                      </span>
+                </div>
+
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-muted/70">Metrics</p>
+                  <dl className="mt-2 grid gap-2">
+                    {hackathon.metrics.map((metric) => (
+                      <div key={metric.label}>
+                        <dt className="text-muted/70">{metric.label}</dt>
+                        <dd className="text-text/90">{metric.value}</dd>
+                      </div>
                     ))}
-                  </div>
+                  </dl>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4 pt-2 text-[11px]">
+                  {hackathon.links.project && (
+                    <a
+                      href={hackathon.links.project}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-medium text-muted hover:text-accent"
+                    >
+                      Project →
+                    </a>
+                  )}
+                  {hackathon.links.writeup && (
+                    <a
+                      href={hackathon.links.writeup}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-medium text-muted hover:text-accent"
+                    >
+                      Write-up →
+                    </a>
+                  )}
+                  {hackathon.links.replay && (
+                    <a
+                      href={hackathon.links.replay}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-medium text-muted hover:text-accent"
+                    >
+                      Replay →
+                    </a>
+                  )}
                 </div>
               </div>
-            </Card>
+            </details>
           ))}
         </div>
       </FadeIn>
