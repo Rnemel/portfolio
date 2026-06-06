@@ -39,7 +39,6 @@ export default function HomePage() {
                     <h1 className="mt-2 text-3xl font-semibold text-text md:text-4xl">
                       {profile.name}
                     </h1>
-                    <p className="mt-2 text-sm text-muted">{profile.title}</p>
                   </div>
                 </div>
 

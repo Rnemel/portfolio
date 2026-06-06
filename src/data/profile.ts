@@ -8,7 +8,7 @@ export const profile = {
     linkedinDisplay: 'linkedin.com/in/raneem-almalki-0b7ab5244',
   },
   summary:
-    'Computer Science senior with SAP Technology Consultant certification, focused on enterprise platforms, business process automation, and AI-driven systems. I also participate in hackathons, which helps me solve real problems fast and deliver practical technical solutions under time constraints.',
+    'Computer Science senior, SAP Technology Consultant, and full-stack developer focused on enterprise platforms, business process automation, and AI-driven systems. I also participate in hackathons, which helps me solve real problems fast and deliver practical technical solutions under time constraints.',
   headlineBullets: [
     'Founded a 160+ member Technology Consulting Club (Taif University)',
     'AI co-op trainee at Taif Health Cluster (automation + healthcare workflows)',
