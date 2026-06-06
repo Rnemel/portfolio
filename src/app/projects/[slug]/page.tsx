@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { FadeIn, Section } from '@/components/section';
 import { getProjectBySlug, projects } from '@/data/projects';
@@ -259,12 +258,12 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 approach could look in your context.
               </p>
             </div>
-            <Link
-              href="/contact"
+            <a
+              href="mailto:rnemelmalki@gmail.com"
               className="text-xs font-medium text-muted hover:text-accent md:text-sm"
             >
-              Let&apos;s talk →
-            </Link>
+              Email →
+            </a>
           </div>
         </FadeIn>
       </Section>
